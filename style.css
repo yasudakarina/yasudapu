@@ -1,0 +1,502 @@
+﻿@import url("reset.css");
+/*
+デザインは診断っぽい雰囲気を出し、無機質で汎用性も抜群に高いので
+ニューモフィズムを利用しています。
+もしよかったらそのままお使いください。
+
+ニューモフィズムについて
+https://hajimete.org/css-new-jene
+*/
+/* base */
+html, body {
+		height: 100%;
+}
+body {
+		width: 100%;
+		margin: 0 auto;
+		//font-size: 16px;
+		//margin: 0;
+		font-family: 'Kosugi Maru', sans-serif;
+		font-feature-settings: "pwid" 1;
+		//-webkit-font-smoothing: subpixel-antialiased;
+		//-moz-osx-font-smoothing: unset;
+		//-webkit-text-size-adjust: 100%;
+		//text-rendering: optimizeLegibility;
+		//word-wrap: break-word;
+		color: #3f515e;
+		background-image: url("img/hubuki.gif");
+		background-size: 150%;
+		background-color:rgba(255,255,255,0.6);
+		background-blend-mode:lighten;
+		background-attachment: fixed;
+		//overflow-y: scroll;
+		overflow-x: hidden;
+		//-webkit-overflow-scrolling: touch;
+	height: 100%;
+		border-left: double 20px #FF949C;/*左線*/
+	border-right: double 20px #FF949C;/*右線*/
+	height: 100%;
+	width: 100%;
+}
+
+.bg {
+	
+}
+//.line {
+	border-left: double 20px #FF949C;/*左線*/
+	border-right: double 20px #FF949C;/*右線*/
+	height: 100%;
+	width: 100%;
+	//position: fixed;
+	bottom: 100%;
+
+
+}
+a, p, span, div, li, ul, h1, h2 {
+		//display: block;
+		//box-sizing: border-box;
+		//-moz-osx-font-smoothing: grayscale;
+		//-webkit-font-smoothing: antialiased;
+}
+//img {
+		max-width: 100%;
+		vertical-align: top;
+}
+li {
+		list-style: none;
+}
+//a {
+		text-decoration: none;
+		//color: #47a7ff;
+		-webkit-transition: 0.6s ease-out;
+		transition: 0.6s ease-out;
+}
+main a:hover {
+		opacity: .6;
+}
+/* IE11でsvg崩れ防止 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	img[src$=".svg"] {
+			width: 100%;
+	}
+}
+/* theme */
+.progress-bar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		margin: 0 auto;
+}
+.progress-bar > span {
+		width: 0%;
+		height: 100%;
+		background: rgba(190, 204, 219, 0.2);
+		background: #FF949C;
+		-webkit-transition: 0.7s 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+		transition: 0.7s 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+}
+#header {
+  width: 100%;
+  background-color: #fff;
+  margin: 0;
+  font-weight: 100;
+  //margin-top: 8px;
+  text-align: left;
+  font-size: 105%;
+  position: fixed;
+  top: 0;
+  left: 50%;
+transform: translateX(-50%);
+box-shadow: 0 3px 6px rgba(15, 0, 0, 0.05);
+opacity: 0.9;
+z-index: 9999;
+}
+#header figure {
+  float: left;
+  margin-top: -45px;
+  margin-left: 50px;
+}
+#header .inner {
+  width: 980px;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin-right: 0%;
+	
+}
+
+#header .inner nav ul {
+  margin: 0;
+  margin-left: -40px;
+}
+#header .inner a {
+  color: #FF949C;
+  padding: 0 25px 0 25px;
+  text-decoration: none;
+}
+
+
+#header .inner li {
+  display: inline-block;
+
+}
+
+#header .inner ul {
+	list-style-type: none;
+
+}
+
+#header .inner a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+#header .inner a::before,
+#header .inner a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+#header .inner a::before {
+  background-color: #AACDE2;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+#header .inner a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #AACDE2;
+}
+#header .inner a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+#header .inner a:hover::after {
+      transform: translate3d(0, 0, 0);
+}
+
+#header a span {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#header a:hover span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+
+/* Presentational Styles */
+#header .inner {
+  display: grid;
+  //font-size: 27px;
+  line-height: 1.5;
+  place-items: center;
+}
+
+#header a .inner {
+  text-decoration: none;
+  color: #AACDE2;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+main {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		max-width: 900px;
+		margin: 0 auto;
+	//height: 1800px;
+	padding-bottom: 20px;
+
+}
+
+.spase p {
+	padding-top: 50px;
+}
+
+.start {
+	width: 100%;
+}
+.questions {
+		padding: 0 30px;
+		margin: 60px 0 60px 0;
+
+}
+.questions > li {
+		font-size: 15px;
+		width: 100%;
+		margin: 0;
+		padding: 30px 48px;
+		border-radius: 14px;
+		box-shadow: 7px 7px 12px -2px rgba(161, 183, 205, 0.5), -5px -5px 8px -2px rgba(255, 255, 255, 0.9), 10px 10px 32px -3px rgba(161, 183, 205, 0.15) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.6) inset;
+		-webkit-transition: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+		transition: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+		opacity: 0.5;
+		//background-color: #fff;
+		margin: 20px 0 10px 0;
+
+}
+.questions > li > p {
+		font-size: 12px;
+		font-weight: bold;
+		opacity: .4;
+		margin-bottom: 1px;
+}
+.questions > li .last-q {
+		text-align: center;
+		font-size: 17px;
+		opacity: 1;
+		margin-bottom: 30px;
+}
+.questions > li > h2 {
+		font-size: 17px;
+}
+.questions > li .select {
+		margin: 18px 0 10px;
+}
+.questions > li .select > p {
+		font-size: 15px;
+		margin-bottom: 12px;
+		padding: 12px;
+		text-align: center;
+		border-radius: 8px;
+		cursor: pointer;
+		vertical-align: top;
+		box-shadow: 2px 2px 6px 1px rgba(161, 183, 205, 0.6), -1px -1px 5px 2px white, 10px 10px 32px -3px rgba(161, 183, 205, 0.15) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.6) inset;
+}
+.questions > li .select > p:hover {
+		background: #FF949C;
+		color: #fff;
+		-webkit-transition: 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+		transition: 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+}
+.questions > li .back-list {
+		margin: 4px 0 0;
+		display: inline-block;
+		padding: 4px 8px;
+		color: #AACDE2;
+		cursor: pointer;
+		-webkit-transition: 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+		transition: 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+}
+.questions > li .back-list:hover {
+		opacity: .6;
+}
+.questions > li .send {
+		position: relative;
+		margin: 18px auto 10px;
+		max-width: 240px;
+}
+.questions > li .send > a {
+		color: #fff;
+		background: #FF949C;
+		font-size: 15px;
+		margin-bottom: 12px;
+		padding: 12px;
+		text-align: center;
+		margin-left: 50px;
+		margin-top: 30px;
+		border-radius: 8px;
+		box-shadow: 2px 2px 6px 1px rgba(161, 183, 205, 0.6), -1px -1px 5px 2px white, 10px 10px 32px -3px rgba(161, 183, 205, 0.15) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.6) inset;
+		-webkit-transition: 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+		transition: 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.spase {
+	text-align: center;
+	margin: 0 auto;
+	font-size: 35px;
+	color: #AACDE2;
+	margin-bottom: 10px;
+	padding: 40px 0 10px 0;
+}
+.ansewer {
+		padding-top: 50px;
+		padding: 30px 0 30px 0;
+		font-size: 18px;
+		padding: 30px 28px;
+		border-radius: 14px;
+		box-shadow: 7px 7px 12px -2px rgba(161, 183, 205, 0.5), -5px -5px 8px -2px rgba(255, 255, 255, 0.9), 10px 10px 32px -3px rgba(161, 183, 205, 0.15) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.6) inset;
+		-webkit-transition: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+		transition: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+		text-align: justify;
+		background-color: #fff;
+		height: 500px;
+}
+.ansewer__title {
+	font-size: 25px;
+	color: #FF949C;
+}
+.ansewer__txt {
+	text-wrap: lighter;
+	font-size: 14px;
+	padding-top: 10px;
+}
+
+.ansewer__img img {
+	width: 450px;
+	margin-top: 30px;
+	margin-left: ;
+}
+.ansewer__img2 img {
+	float: right;
+	width: 320px;
+	margin-top: -290px;
+	margin-right: 20px;
+}
+
+.ansewer > p {
+		font-size: 13px;
+		//font-weight: bold;
+		opacity: .4;
+		margin: 16px 0 14px;
+}
+.ansewer > a {
+	text-align: center;
+}
+.back {
+		margin: 30px 30px 0;
+		text-align: center;
+
+}
+.back a {
+		display: inline-block;
+		color: #AACDE2;
+}
+
+.start {
+	text-align: center;
+	padding-top: 100px;
+}
+.start p {
+	text-align: center;
+	font-size: 35px;
+	color: #AACDE2;
+	margin-bottom: 10px;
+}
+.start a {
+	text-align: center;
+	margin: 0 auto;
+	font-size: 15px;
+	padding-top: 50px;
+}
+footer p {
+  text-align: center;
+  //margin-bottom: 20px;
+	//padding: 15px;
+
+
+}
+footer {
+  background-color: #FF949C;
+  margin: 0;
+  width: 100%;
+}
+footer {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  padding: 5px 0 5px 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+small {
+  font-size: 10px;
+  letter-spacing: 1px;
+	color: #fff;
+
+}
+footer .inner {
+    	text-align: center;
+      //padding: 10px 0 10px 0;
+}
+footer figure {
+  text-align: center;
+  padding: 20px;
+}
+/* state */
+.left {
+		margin-left: -200% !important;
+		opacity: 0;
+}
+.right {
+		margin-left: 200% !important;
+		opacity: 0;
+}
+.opas {
+		opacity: 1 !important;
+}
+.click {
+	-webkit-animation: click .6s linear;
+	animation: click .6s linear;
+}
+@keyframes click {
+	0% {transform: scale(1);}
+	15% {transform: scale(.975);}
+	100% {transform: scale(1);}
+}
+@-webkit-keyframes click {
+	0% {-webkit-transform: scale(1);}
+	15% {-webkit-transform: scale(.975);}
+	100% {-webkit-transform: scale(1);}
+}
+@media (min-width: 768px) {
+		.questions > li .select {
+				letter-spacing: -.4em;
+				font-size: 0;
+		}		.questions > li .select > p {
+				font-size: 15px;
+				letter-spacing: normal;
+				display: inline-block;
+				width: 48.5%;
+				margin-right: 3%;
+		}		.questions > li .select > p:nth-child(even) {
+				margin-right: 0;
+		}}
+
+/*
+	OSの画面設定に合わせてダークモード表示
+	https://hajimete.org/supports-dark-mode-with-css
+*/
+@media (prefers-color-scheme: dark) {
+		body {
+				background: #15202B;
+				color: #fff;
+		}		a {
+				color: #5bb0ff;
+		}		a:hover {
+				opacity: .4;
+		}		.progress-bar > span {
+				background: #5bb0ff;
+		}		.questions > li {
+				box-shadow: 7px 7px 12px -2px rgba(9, 14, 19, 0.4), -5px -5px 8px -2px rgba(255, 255, 255, 0.05), 10px 10px 32px -3px rgba(10, 16, 23, 0.3) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.05) inset;
+		}		.questions > li .select > p {
+				box-shadow: 7px 7px 12px -2px rgba(9, 14, 19, 0.4), -5px -5px 8px -2px rgba(255, 255, 255, 0.05), 10px 10px 32px -3px rgba(10, 16, 23, 0.3) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.05) inset;
+		}		.questions > li .select > p:hover {
+				background: #5bb0ff;
+		}		.questions > li .back-list {
+				color: #5bb0ff;
+		}		.questions > li .send > a {
+				background: #5bb0ff;
+				box-shadow: 7px 7px 12px -2px rgba(9, 14, 19, 0.4), -5px -5px 8px -2px rgba(255, 255, 255, 0.05), 10px 10px 32px -3px rgba(10, 16, 23, 0.3) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.05) inset;
+		}		.ansewer {
+				box-shadow: 7px 7px 12px -2px rgba(9, 14, 19, 0.4), -5px -5px 8px -2px rgba(255, 255, 255, 0.05), 10px 10px 32px -3px rgba(10, 16, 23, 0.3) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.05) inset;
+		}		.social li {
+				box-shadow: 7px 7px 12px -2px rgba(9, 14, 19, 0.4), -5px -5px 8px -2px rgba(255, 255, 255, 0.05), 10px 10px 32px -3px rgba(10, 16, 23, 0.3) inset, -6px -6px 22px -13px rgba(255, 255, 255, 0.05) inset;
+		}		.social svg path {
+				fill: #fff;
+		}}
